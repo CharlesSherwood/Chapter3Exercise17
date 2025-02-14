@@ -44,7 +44,8 @@ int main()
 
 	}
 	//pause the system until they enter a key
-	//system("pause");
+	cout << "Check answer?" << endl;
+	system("pause");
 	cout << A << " + " << B << " = " << C << endl;
 	return 0;
 }
