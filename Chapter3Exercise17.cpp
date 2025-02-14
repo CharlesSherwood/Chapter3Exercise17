@@ -14,7 +14,7 @@ using namespace std;
 
 int main()
 {
-	double A, B, C;
+	double A, B, C, U;
 
 	unsigned seed = time(0);
 	srand(seed);
@@ -29,10 +29,22 @@ int main()
 	C = A + B;
 
 	cout << "\n";
-	cout << A << " + " << B << " = " << endl;
 
+
+	cout << A << " + " << B << " = ";
+	cin >> U;
+	if (U > C) {
+		cout << "Incorect" << endl;
+	}
+	else if (U < C) {
+		cout << "Incorrect" << endl;
+	}
+	else {
+		cout << "Correct" << endl;
+
+	}
 	//pause the system until they enter a key
-	system("pause");
+	//system("pause");
 	cout << A << " + " << B << " = " << C << endl;
 	return 0;
 }
