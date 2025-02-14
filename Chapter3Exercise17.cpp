@@ -1,20 +1,38 @@
-// Chapter3Exercise17.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+/*FileName:Chapter3Exercise17.cpp
+Programmer:Charles Sherwood
+Date:2/2025
+Requirments:This program should display two random numbers for 
+user to add together and when the user is ready they can press a 
+key and the correct solution will be shown.
+*/
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
+#include <cmath>
+#include <ctime>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	double A, B, C;
+
+	unsigned seed = time(0);
+	srand(seed);
+	//Let the user know what The program does.
+	cout << "Hello, Welcome to Math Tutor" << endl;
+	cout << "I will be helping you learn addition today" << "\n\n";
+	cout << "I will display two random numbers, try and solve for the answer." << endl;
+
+	//Get two random numbers and add them together
+	A = 1 + rand() % 350;
+	B = 1 + rand() % 350;
+	C = A + B;
+
+	cout << "\n";
+	cout << A << " + " << B << " = " << endl;
+
+	//pause the system until they enter a key
+	system("pause");
+	cout << A << " + " << B << " = " << C << endl;
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
