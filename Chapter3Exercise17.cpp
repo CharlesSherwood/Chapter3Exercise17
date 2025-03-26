@@ -95,7 +95,7 @@ double Addition()
 	cout << "Check answer?" << endl;
 	system("pause");
 	cout << A << " + " << B << " = " << C << endl;
-	return	main();
+	return main();
 }
 double Subtraction()
 {
@@ -168,9 +168,17 @@ double Division()
 	srand(seed);
 	A = 1 + rand() % 350;
 	B = 1 + rand() % 350;
-	C = A / B;
-	cout << endl;
-	cout << A << " / " << B << " = ";
+	if (A < B)
+	{
+		C = B / A;
+		cout << B << "/" << A << "=";
+	}
+	else
+	{
+		C = A / B;
+		cout << endl;
+		cout << A << " / " << B << " = ";
+	}
 	cin >> U;
 	if (U > C)
 	{
