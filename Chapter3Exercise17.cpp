@@ -12,6 +12,12 @@ key and the correct solution will be shown.
 #include <ctime>
 using namespace std;
 
+double Choice() 
+{
+	
+
+}
+
 int main()
 {
 	double A, B, C, U;
