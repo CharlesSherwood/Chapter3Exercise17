@@ -1,9 +1,9 @@
 /*FileName:Chapter3Exercise17.cpp
 Programmer:Charles Sherwood
 Date:2/2025
-Requirments:This program should display two random numbers for 
-user to add together and when the user is ready they can press a 
-key and the correct solution will be shown.
+Requirments:This Revised Program should present the user
+with a menu to choose what kind of math the need to work on 
+and let them make a choice.
 */
 #include <iostream>
 #include <iomanip>
@@ -12,32 +12,29 @@ key and the correct solution will be shown.
 #include <ctime>
 using namespace std;
 
-double Menu();
+//Create the variables that will need to be called 
 double Addition();
 double Subtraction();
 double Multiplication();
 double Division();
+int choice;
 
-
+//Create a menu in main
 int main()
 {
-	Menu();
-}
-
-
-double Menu()
-{
-	int choice;
 	do {
+		cout << "----------------" << endl;
 		cout << "1-Addition" << endl;
 		cout << "2-Subtraction" << endl;
 		cout << "3-Multiplication" << endl;
 		cout << "4-Division" << endl;
 		cout << "5-EXIT" << endl;
+		cout << "----------------" << endl;
 		cin >> choice;
 		if (choice > 5 || choice < 1)
 		{
-			cout << "Please Enter A Valid Choice";
+			cout << "Please Enter A Valid Choice" << endl;
+			return main();
 			cin >> choice;
 		}
 		switch (choice)
@@ -64,12 +61,16 @@ double Menu()
 		break;
 		}
 	} while (choice != 5);
-	return 0;
 
+	cout << "-----------------------------------\n";
+	cout << "!!THANK YOU FOR USING THE PROGRAM!!\n";
+	cout << "-----------------------------------\n";
 }
 
 
-double Addition()
+
+//Have main call this for addition and so on.
+	double Addition()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -78,26 +79,32 @@ double Addition()
 	B = 1 + rand() % 350;
 	C = A + B;
 	cout << endl;
-	cout << A << " + " << B << " = ";
+	cout <<fixed<<setprecision(0)<<setw(6)<<A << endl <<
+		" + " << B <<endl<<setw(6)<<"---"<<endl;
 	cin >> U;
-	if (U > C)
+	if (U > C||U<C)
 	{
-		cout << "Incorect" << endl;
-	}
-	else if (U < C) {
 		cout << "Incorrect" << endl;
+		cout << "Check answer? ";
+		system("pause");
+		cout << "The Correct Answer Is " << C << endl;
 	}
 	else {
 		cout << "Correct" << endl;
 
 	}
-	//pause the system until they enter a key
-	cout << "Check answer?" << endl;
+	cout << "--------------\n";
+	cout << "Return To Menu"<<endl;
+	cout << "--------------\n";
 	system("pause");
-	cout << A << " + " << B << " = " << C << endl;
 	return main();
 }
-double Subtraction()
+
+
+
+
+
+	double Subtraction()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -107,32 +114,40 @@ double Subtraction()
 	if (A < B)
 	{
 		C = B - A;
-		cout << B << " - " << A << " = ";
+		cout <<fixed<<setprecision(0)<<setw(6) << A << endl << 
+			" - " << B << endl << setw(6) << "---" << endl;
 	}
 	else
 	{C = A - B;
 	cout << endl;
-	cout << A << " - " << B << " = ";
+	cout <<fixed<<setprecision(0)<<setw(6) << A << endl << 
+		" - " << B << endl << setw(6) << "---" << endl;
 	}
 	cin >> U;
-	if (U > C)
+	if (U > C || U < C)
 	{
 		cout << "Incorect" << endl;
-	}
-	else if (U < C) {
-		cout << "Incorrect" << endl;
+		cout << "Check answer? ";
+		system("pause");
 	}
 	else {
-		cout << "Correct" << endl;
+		cout << "Correct Good Job!" << endl;
 
 	}
-	//pause the system until they enter a key
-	cout << "Check answer?" << endl;
+	cout << "The Correct Answer Is " << C << endl;
+	cout << endl;
+	cout << "--------------\n";
+	cout << "Return To Menu" << endl;
+	cout << "--------------\n";
 	system("pause");
-	cout << A << " - " << B << " = " << C << endl;
 	return	main();
 }
-double Multiplication()
+
+
+
+
+
+	double Multiplication()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -141,60 +156,78 @@ double Multiplication()
 	B = 1 + rand() % 350;
 	C = A * B;
 	cout << endl;
-	cout << A << " * " << B << " = ";
+	cout <<fixed<<setprecision(0)<< setw(6) << A << endl << 
+		" * " << B << endl << setw(6) << "---" << endl;
 	cin >> U;
-	if (U > C)
+	if (U > C || U < C)
 	{
 		cout << "Incorect" << endl;
-	}
-	else if (U < C) {
-		cout << "Incorrect" << endl;
+		cout << "Check answer? ";
+		system("pause");
 	}
 	else {
-		cout << "Correct" << endl;
+		cout << "Correct Good Job!" << endl;
 
 	}
-	//pause the system until they enter a key
-	cout << "Check answer?" << endl;
+	cout << "The Correct Answer Is " << C << endl;
+	cout << endl;
+	cout << "--------------\n";
+	cout << "Return To Menu" << endl;
+	cout << "--------------\n";
 	system("pause");
-	cout << A << " * " << B << " = " << C << endl;
 	return	main();
 
 }
-double Division()
+
+
+
+
+
+	double Division()
 {
-	double A, B, C, U;
+	double A, B, C, U, rounded;
 	unsigned seed = time(0);
 	srand(seed);
 	A = 1 + rand() % 350;
 	B = 1 + rand() % 350;
+	cout << "Please Round to the nearest tenths place" << endl;
+
+
 	if (A < B)
 	{
 		C = B / A;
-		cout << B << "/" << A << "=";
+		 rounded = round(C * 10) / 10;
+		 cout << endl;
+		 cout << fixed << setprecision(0) << B << endl << "---" << endl << A << endl << "----"<<"\n";
 	}
 	else
 	{
 		C = A / B;
-		cout << endl;
-		cout << A << " / " << B << " = ";
+		 rounded= round(C * 10) / 10;
+		 cout << endl;
+		 cout << fixed<<setprecision(0)<<A << endl << "---" << endl << B<<endl<<"----"<<"\n";
 	}
+
+
 	cin >> U;
-	if (U > C)
+	if (U > rounded||U < rounded)
 	{
 		cout << "Incorect" << endl;
-	}
-	else if (U < C) {
-		cout << "Incorrect" << endl;
+		cout << "Check answer? ";
+		system("pause");
 	}
 	else {
 		cout << "Correct" << endl;
 
 	}
-	//pause the system until they enter a key
-	cout << "Check answer?" << endl;
-	system("pause");
-	cout << A << " / " << B << " = " << C << endl;
-	return	main();
 
+
+	cout <<fixed<<setprecision(1)
+		<< "The Correct Answer Is " << rounded << endl;
+	cout << endl;
+	cout << "--------------\n";
+	cout << "Return To Menu" << endl;
+	cout << "--------------\n";
+	system("pause");
+	return	main();
 }
