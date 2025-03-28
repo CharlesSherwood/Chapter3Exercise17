@@ -14,10 +14,9 @@ using namespace std;
 
 int RandNum();
 bool Repeat();
-void Display();
+void Display(double A, double B,double C);
 void Welcome();
 double UserIn();
-double A, B, C;
 int main()
 {
 	double A, B, C;
@@ -28,7 +27,7 @@ int main()
 		A =  RandNum();
 		B = RandNum();
 		C = A + B;
-		Display();
+		Display(A, B,  C);
 	} while (Repeat());
 }
 
@@ -46,17 +45,18 @@ int RandNum()
 {
 	unsigned seed = time(0);
 	srand(seed);
-	return 1 + rand() % 350;
+	1 + rand() % 350;
+	return;
 }
 
 
-double UserIn()
+double UserIn(double C)
 {
 	double input;
 	cout << "What Would The Answer Be:";
 	cin >> input;
 	if (input < C)
-		cout << "Wrong Answer";
+	cout << "Wrong Answer";
 
 	return input;
 }
@@ -70,12 +70,12 @@ bool Repeat()
 	return RP;
 }
 
-void Display()
+void Display(double A,double B, double C)
 {
 	cout << "\n";
 	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << " --- " << endl;
-	UserIn();
+	UserIn(C);
 	//pause the system until they enter a key
-	system("pause");
+	cin.get();
 	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) << C << endl;
 }
