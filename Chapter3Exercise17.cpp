@@ -1,9 +1,9 @@
 /*FileName:Chapter3Exercise17.cpp
 Programmer:Charles Sherwood
-Date:2/2025
-Requirments:This program should display two random numbers for 
-user to add together and when the user is ready they can press a 
-key and the correct solution will be shown.
+Date:3/2025
+Requirments:This is a revised version of a program
+that now includes modules and a loop to retry the program 
+to test if it works 
 */
 #include <iostream>
 #include <iomanip>
