@@ -14,6 +14,7 @@ using namespace std;
 
 int RandNum();
 bool Repeat();
+double UserIn();
 double A, B, C;
 int main()
 {
@@ -28,7 +29,7 @@ int main()
 		RandNum();
 		cout << "\n";
 		cout << setw(6) << A << endl << " + " << B << endl << setw(6) <<  " --- " << endl;
-
+		UserIn();
 		//pause the system until they enter a key
 		system("pause");
 		cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) <<  C << endl;
@@ -46,6 +47,16 @@ int RandNum()
 	B = 1 + rand() % 350;
 	C = A + B;
 	return C;
+}
+double UserIn(double C)
+{
+	double input;
+	cout << "What Would The Answer Be:";
+	cin >> input;
+	if (input < C)
+		cout << "Wrong Answer";
+
+	return input;
 }
 
 //Have a module that will ask the user if they want to repeat the program.
