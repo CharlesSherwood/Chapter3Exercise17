@@ -14,27 +14,30 @@ using namespace std;
 
 int RandNum();
 bool Repeat();
+void Display();
+void Welcome();
 double UserIn();
 double A, B, C;
 int main()
 {
-	//Let the user know what The program does.
+	double A, B, C;
+	Welcome();
+	//Create a loop for the program.
+	do
+	{
+		A =  RandNum();
+		B = RandNum();
+		C = A + B;
+		Display();
+	} while (Repeat());
+}
+
+void Welcome()
+{
 	cout << "Hello, Welcome to Math Tutor" << endl;
 	cout << "I will be helping you learn addition today" << "\n\n";
 	cout << "I will display two random numbers, try and solve for the answer." << endl;
 
-	//Create a loop for the program.
-	do
-	{
-		RandNum();
-		cout << "\n";
-		cout << setw(6) << A << endl << " + " << B << endl << setw(6) <<  " --- " << endl;
-		UserIn();
-		//pause the system until they enter a key
-		system("pause");
-		cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) <<  C << endl;
-
-	} while (Repeat());
 }
 
 
@@ -43,12 +46,11 @@ int RandNum()
 {
 	unsigned seed = time(0);
 	srand(seed);
-	A = 1 + rand() % 350;
-	B = 1 + rand() % 350;
-	C = A + B;
-	return C;
+	return 1 + rand() % 350;
 }
-double UserIn(double C)
+
+
+double UserIn()
 {
 	double input;
 	cout << "What Would The Answer Be:";
@@ -66,4 +68,14 @@ bool Repeat()
 	cout <<endl<< "Would You Like To Repeat The Program?";
 	cin >> RP;
 	return RP;
+}
+
+void Display()
+{
+	cout << "\n";
+	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << " --- " << endl;
+	UserIn();
+	//pause the system until they enter a key
+	system("pause");
+	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) << C << endl;
 }
