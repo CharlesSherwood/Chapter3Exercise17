@@ -12,27 +12,47 @@ key and the correct solution will be shown.
 #include <ctime>
 using namespace std;
 
+int RandNum();
+bool Repeat();
+double A, B, C;
 int main()
 {
-	double A, B, C;
-
-	unsigned seed = time(0);
-	srand(seed);
 	//Let the user know what The program does.
 	cout << "Hello, Welcome to Math Tutor" << endl;
 	cout << "I will be helping you learn addition today" << "\n\n";
 	cout << "I will display two random numbers, try and solve for the answer." << endl;
 
-	//Get two random numbers and add them together
+	//Create a loop for the program.
+	do
+	{
+		RandNum();
+		cout << "\n";
+		cout << setw(6) << A << endl << " + " << B << endl << setw(6) <<  " --- " << endl;
+
+		//pause the system until they enter a key
+		system("pause");
+		cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) <<  C << endl;
+
+	} while (Repeat());
+}
+
+
+//Have a module that gets random numbers and adds them
+int RandNum()
+{
+	unsigned seed = time(0);
+	srand(seed);
 	A = 1 + rand() % 350;
 	B = 1 + rand() % 350;
 	C = A + B;
+	return C;
+}
 
-	cout << "\n";
-	cout << A << " + " << B << " = " << endl;
-
-	//pause the system until they enter a key
-	system("pause");
-	cout << A << " + " << B << " = " << C << endl;
-	return 0;
+//Have a module that will ask the user if they want to repeat the program.
+bool Repeat()
+{
+	int RP;
+	cout <<endl<< "Would You Like To Repeat The Program?";
+	cin >> RP;
+	return RP;
 }
