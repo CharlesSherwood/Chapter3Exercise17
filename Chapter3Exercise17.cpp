@@ -16,7 +16,9 @@ int RandNum();
 bool Repeat();
 void Display(double A, double B,double C);
 void Welcome();
-double UserIn();
+double UserIn(double C);
+
+
 int main()
 {
 	double A, B, C;
@@ -45,8 +47,7 @@ int RandNum()
 {
 	unsigned seed = time(0);
 	srand(seed);
-	1 + rand() % 350;
-	return;
+	return 1 + rand() % 350;
 }
 
 
