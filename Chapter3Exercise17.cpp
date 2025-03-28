@@ -10,73 +10,78 @@ key and the correct solution will be shown.
 #include <cstdlib>
 #include <cmath>
 #include <ctime>
+
 using namespace std;
 
 int RandNum();
 bool Repeat();
-void Display(double A, double B,double C);
+void Display(double A, double B, double C);
 void Welcome();
 double UserIn(double C);
 
-
 int main()
 {
-	double A, B, C;
-	Welcome();
-	//Create a loop for the program.
-	do
-	{
-		A =  RandNum();
-		B = RandNum();
-		C = A + B;
-		Display(A, B,  C);
-	} while (Repeat());
+    srand(time(0)); // Seed random generator only ONCE
+    Welcome();
+
+    do
+    {
+        double A = RandNum();
+        double B = RandNum();
+        double C = A + B;
+        Display(A, B, C);
+    } while (Repeat());
+
+    return 0;
 }
 
 void Welcome()
 {
-	cout << "Hello, Welcome to Math Tutor" << endl;
-	cout << "I will be helping you learn addition today" << "\n\n";
-	cout << "I will display two random numbers, try and solve for the answer." << endl;
-
+    cout << "Hello, Welcome to Math Tutor" << endl;
+    cout << "I will be helping you learn addition today\n\n";
+    cout << "I will display two random numbers, try and solve for the answer." << endl;
 }
 
-
-//Have a module that gets random numbers and adds them
+// Generates a random number between 1 and 350
 int RandNum()
 {
-	unsigned seed = time(0);
-	srand(seed);
-	return 1 + rand() % 350;
+    return 1 + rand() % 350;
 }
-
 
 double UserIn(double C)
 {
-	double input;
-	cout << "What Would The Answer Be:";
-	cin >> input;
-	if (input < C)
-	cout << "Wrong Answer";
+    double input;
+    cout << "What Would The Answer Be: ";
+    cin >> input;
 
-	return input;
+    if (input != C)
+        cout << "Wrong Answer\n";
+    else
+        cout << "Correct Answer!\n";
+
+    return input;
 }
 
-//Have a module that will ask the user if they want to repeat the program.
+// Ask the user if they want to repeat
 bool Repeat()
 {
-	int RP;
-	cout <<endl<< "Would You Like To Repeat The Program?";
-	cin >> RP;
-	return RP;
+    char RP;
+    cout << "\nWould You Like To Repeat The Program? (Y/N): ";
+    cin >> RP;
+    return (RP == 'Y' || RP == 'y');
 }
 
-void Display(double A,double B, double C)
+//Display the answers on the screen
+void Display(double A, double B, double C)
 {
-	cout << "\n";
-	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << " --- " << endl;
-	UserIn(C);
-	//pause the system until they enter a key
-	cin.get();
-	cout << setw(6) << A << endl << " + " << B << endl << setw(6) << "---" << endl << setw(6) << C << endl;
+    cout << "\n" << setw(6) << A << endl
+        << " + " << B << endl
+        << setw(6) << "---" << endl;
+
+    UserIn(C);
+
+    cout << setw(6) << A << endl
+        << " + " << B << endl
+        << setw(6) << "---" << endl
+        << setw(6) << C << endl;
 }
