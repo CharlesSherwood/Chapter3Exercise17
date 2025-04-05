@@ -17,19 +17,15 @@ double Addition();
 double Subtraction();
 double Multiplication();
 double Division();
+void Menu();
+void InCO(double U,double C);
 int choice;
 
 //Create a menu in main
 int main()
 {
 	do {
-		cout << "----------------" << endl;
-		cout << "1-Addition" << endl;
-		cout << "2-Subtraction" << endl;
-		cout << "3-Multiplication" << endl;
-		cout << "4-Division" << endl;
-		cout << "5-EXIT" << endl;
-		cout << "----------------" << endl;
+		Menu();
 		cin >> choice;
 		if (choice > 5 || choice < 1)
 		{
@@ -67,8 +63,17 @@ int main()
 	cout << "-----------------------------------\n";
 }
 
+void Menu()
+{
+	cout << "----------------" << endl;
+	cout << "1-Addition" << endl;
+	cout << "2-Subtraction" << endl;
+	cout << "3-Multiplication" << endl;
+	cout << "4-Division" << endl;
+	cout << "5-EXIT" << endl;
+	cout << "----------------" << endl;
 
-
+}
 //Have main call this for addition and so on.
 	double Addition()
 {
@@ -82,21 +87,7 @@ int main()
 	cout <<fixed<<setprecision(0)<<setw(6)<<A << endl <<
 		" + " << B <<endl<<setw(6)<<"---"<<endl;
 	cin >> U;
-	if (U > C||U<C)
-	{
-		cout << "Incorrect" << endl;
-		cout << "Check answer? ";
-		system("pause");
-		cout << "The Correct Answer Is " << C << endl;
-	}
-	else {
-		cout << "Correct" << endl;
-
-	}
-	cout << "--------------\n";
-	cout << "Return To Menu"<<endl;
-	cout << "--------------\n";
-	system("pause");
+	InCO(U, C);
 	return main();
 }
 
@@ -124,22 +115,7 @@ int main()
 		" - " << B << endl << setw(6) << "---" << endl;
 	}
 	cin >> U;
-	if (U > C || U < C)
-	{
-		cout << "Incorect" << endl;
-		cout << "Check answer? ";
-		system("pause");
-	}
-	else {
-		cout << "Correct Good Job!" << endl;
-
-	}
-	cout << "The Correct Answer Is " << C << endl;
-	cout << endl;
-	cout << "--------------\n";
-	cout << "Return To Menu" << endl;
-	cout << "--------------\n";
-	system("pause");
+	InCO(U, C);
 	return	main();
 }
 
@@ -159,22 +135,7 @@ int main()
 	cout <<fixed<<setprecision(0)<< setw(6) << A << endl << 
 		" * " << B << endl << setw(6) << "---" << endl;
 	cin >> U;
-	if (U > C || U < C)
-	{
-		cout << "Incorect" << endl;
-		cout << "Check answer? ";
-		system("pause");
-	}
-	else {
-		cout << "Correct Good Job!" << endl;
-
-	}
-	cout << "The Correct Answer Is " << C << endl;
-	cout << endl;
-	cout << "--------------\n";
-	cout << "Return To Menu" << endl;
-	cout << "--------------\n";
-	system("pause");
+	InCO(U, C);
 	return	main();
 
 }
@@ -231,3 +192,22 @@ int main()
 	system("pause");
 	return	main();
 }
+	void InCO(double U,double C)
+	{
+		if (U > C || U < C)
+		{
+			cout << "Incorrect" << endl;
+			cout << "Check answer? ";
+			system("pause");
+			cout << "The Correct Answer Is " << C << endl;
+		}
+		else {
+			cout << "Correct" << endl;
+
+		}
+		cout << "--------------\n";
+		cout << "Return To Menu" << endl;
+		cout << "--------------\n";
+		system("pause");
+
+	}
