@@ -13,17 +13,17 @@ and let them make a choice.
 using namespace std;
 
 //Create the variables that will need to be called 
-double Addition();
-double Subtraction();
-double Multiplication();
-double Division();
+void Addition();
+void Subtraction();
+void Multiplication();
+void Division();
 void Menu();
 void InCO(double U,double C);
-int choice;
 
 //Create a menu in main
 int main()
 {
+	int choice;
 	do {
 		Menu();
 		cin >> choice;
@@ -74,8 +74,9 @@ void Menu()
 	cout << "----------------" << endl;
 
 }
-//Have main call this for addition and so on.
-	double Addition()
+	
+	//Have main call this for addition and so on.
+	void Addition()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -84,18 +85,17 @@ void Menu()
 	B = 1 + rand() % 350;
 	C = A + B;
 	cout << endl;
-	cout <<fixed<<setprecision(0)<<setw(6)<<A << endl <<
+	cout <<fixed<<setprecision(0)<<right<<setw(6)<<A << endl <<
 		" + " << B <<endl<<setw(6)<<"---"<<endl;
 	cin >> U;
 	InCO(U, C);
-	return main();
 }
 
 
 
 
 
-	double Subtraction()
+	void Subtraction()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -116,14 +116,13 @@ void Menu()
 	}
 	cin >> U;
 	InCO(U, C);
-	return	main();
 }
 
 
 
 
 
-	double Multiplication()
+	void Multiplication()
 {
 	double A, B, C, U;
 	unsigned seed = time(0);
@@ -136,7 +135,6 @@ void Menu()
 		" * " << B << endl << setw(6) << "---" << endl;
 	cin >> U;
 	InCO(U, C);
-	return	main();
 
 }
 
@@ -144,7 +142,7 @@ void Menu()
 
 
 
-	double Division()
+	void Division()
 {
 	double A, B, C, U, rounded;
 	unsigned seed = time(0);
@@ -166,7 +164,7 @@ void Menu()
 		C = A / B;
 		 rounded= round(C * 10) / 10;
 		 cout << endl;
-		 cout << fixed<<setprecision(0)<<A << endl << "---" << endl << B<<endl<<"----"<<"\n";
+		 cout << fixed<<setprecision(0)<<right<<A << endl << "---" << endl << B<<endl<<"----"<<"\n";
 	}
 
 
@@ -190,8 +188,9 @@ void Menu()
 	cout << "Return To Menu" << endl;
 	cout << "--------------\n";
 	system("pause");
-	return	main();
 }
+	
+//Module to Check answer
 	void InCO(double U,double C)
 	{
 		if (U > C || U < C)
