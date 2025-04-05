@@ -1,6 +1,6 @@
 /*FileName:Chapter3Exercise17.cpp
 Programmer:Charles Sherwood
-Date:2/2025
+Date:4/2025
 Requirments:This Revised Program should present the user
 with a menu to choose what kind of math the need to work on 
 and let them make a choice.
@@ -105,13 +105,13 @@ void Menu()
 	if (A < B)
 	{
 		C = B - A;
-		cout <<fixed<<setprecision(0)<<setw(6) << A << endl << 
-			" - " << B << endl << setw(6) << "---" << endl;
+		cout << fixed << setprecision(0) <<right<< setw(6) << B << endl << 
+			" - " << A << endl << setw(6) << "---" << endl;
 	}
 	else
 	{C = A - B;
 	cout << endl;
-	cout <<fixed<<setprecision(0)<<setw(6) << A << endl << 
+	cout << fixed << setprecision(0) << right << setw(6) << A << endl << 
 		" - " << B << endl << setw(6) << "---" << endl;
 	}
 	cin >> U;
